@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #0f0f0f;
+  --color-text: #f5f5f5;
+  --color-accent: #c4a77d;
+  --color-muted: #888;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  flex: 1;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.about {
+  margin-bottom: 4rem;
+}
+
+.about p {
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.interests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.interest {
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.interest:hover {
+  border-color: var(--color-accent);
+}
+
+.interest h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+.interest p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  .intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .interests {
+    grid-template-columns: 1fr;
+  }
+}
