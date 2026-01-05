@@ -5,18 +5,19 @@
 }
 
 :root {
-  --color-bg: #080707;
-  --color-bg-surface: #0d0d0d;
-  --color-text: #ffffff;
-  --color-text-muted: #666666;
-  --color-neon: #39ff14;
-  --color-neon-alt: #00ff88;
-  --color-petrol: #006778;
-  --color-border: #39ff14;
-  --font-main: 'Courier New', Courier, monospace;
-  --font-display: 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif;
-  --neon-glow: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3), 0 0 40px rgba(57, 255, 20, 0.2);
-  --neon-glow-intense: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 30px rgba(57, 255, 20, 0.5), 0 0 60px rgba(57, 255, 20, 0.3), 0 0 100px rgba(57, 255, 20, 0.2);
+  --color-bg: #0a0a0a;
+  --color-bg-surface: #111111;
+  --color-text: #e8e4df;
+  --color-text-muted: #8a8580;
+  --color-accent: #0a5e6e;
+  --color-accent-light: #1a8ea0;
+  --color-accent-dark: #043842;
+  --color-border: #0a5e6e;
+  --color-gold: #8b7355;
+  --font-main: 'Times New Roman', 'Georgia', serif;
+  --font-display: 'Times New Roman', 'Georgia', serif;
+  --tribal-glow: 0 0 15px rgba(10, 94, 110, 0.4), 0 0 30px rgba(10, 94, 110, 0.2);
+  --tribal-glow-intense: 0 0 10px rgba(10, 94, 110, 0.6), 0 0 25px rgba(10, 94, 110, 0.4), 0 0 50px rgba(10, 94, 110, 0.2);
 }
 
 html {
@@ -35,7 +36,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Geometric grid background */
+/* Tribal/Gothic background pattern */
 body::before {
   content: '';
   position: fixed;
@@ -44,56 +45,68 @@ body::before {
   right: 0;
   bottom: 0;
   background:
-    /* Diagonal lines */
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 80px,
-      rgba(57, 255, 20, 0.03) 80px,
-      rgba(57, 255, 20, 0.03) 81px
+    /* Central tribal mandala pattern */
+    radial-gradient(
+      circle at 50% 30%,
+      transparent 0%,
+      transparent 100px,
+      rgba(10, 94, 110, 0.02) 100px,
+      rgba(10, 94, 110, 0.02) 102px,
+      transparent 102px,
+      transparent 150px,
+      rgba(10, 94, 110, 0.015) 150px,
+      rgba(10, 94, 110, 0.015) 152px,
+      transparent 152px,
+      transparent 200px,
+      rgba(10, 94, 110, 0.01) 200px,
+      rgba(10, 94, 110, 0.01) 202px,
+      transparent 202px
     ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 80px,
-      rgba(57, 255, 20, 0.03) 80px,
-      rgba(57, 255, 20, 0.03) 81px
-    ),
-    /* Vertical grid */
+    /* Gothic arch pattern */
     repeating-linear-gradient(
       90deg,
-      transparent,
-      transparent 60px,
-      rgba(57, 255, 20, 0.02) 60px,
-      rgba(57, 255, 20, 0.02) 61px
+      transparent 0px,
+      transparent 150px,
+      rgba(10, 94, 110, 0.03) 150px,
+      rgba(10, 94, 110, 0.03) 152px
     ),
-    /* Horizontal grid */
+    /* Vertical tribal lines */
     repeating-linear-gradient(
       0deg,
-      transparent,
-      transparent 60px,
-      rgba(57, 255, 20, 0.02) 60px,
-      rgba(57, 255, 20, 0.02) 61px
+      transparent 0px,
+      transparent 50px,
+      rgba(10, 94, 110, 0.02) 50px,
+      rgba(10, 94, 110, 0.02) 52px,
+      transparent 52px,
+      transparent 54px,
+      rgba(10, 94, 110, 0.01) 54px,
+      rgba(10, 94, 110, 0.01) 55px
     );
   z-index: -2;
   pointer-events: none;
 }
 
-/* Radial neon accent glow */
+/* Gothic vignette and ambient glow */
 body::after {
   content: '';
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 150%;
-  height: 150%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(57, 255, 20, 0.05) 0%,
-    transparent 40%,
-    transparent 100%
-  );
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(10, 94, 110, 0.08) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
   z-index: -1;
   pointer-events: none;
 }
@@ -106,141 +119,148 @@ body::after {
   position: relative;
 }
 
-/* Decorative geometric elements */
+/* Tribal decorative elements */
 .container::before {
-  content: '';
+  content: '✦';
   position: absolute;
-  top: 60px;
-  right: -20px;
-  width: 100px;
-  height: 100px;
-  border: 3px solid var(--color-neon);
-  transform: rotate(45deg);
-  box-shadow: var(--neon-glow);
-  opacity: 0.6;
+  top: 40px;
+  right: 10px;
+  font-size: 60px;
+  color: var(--color-accent);
+  opacity: 0.3;
+  text-shadow: var(--tribal-glow);
+  transform: rotate(15deg);
 }
 
 .container::after {
-  content: '';
+  content: '◆';
   position: absolute;
-  bottom: 200px;
-  left: -40px;
-  width: 60px;
-  height: 60px;
-  background: var(--color-neon);
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  box-shadow: var(--neon-glow);
-  opacity: 0.4;
+  bottom: 180px;
+  left: -10px;
+  font-size: 40px;
+  color: var(--color-accent);
+  opacity: 0.25;
+  text-shadow: var(--tribal-glow);
 }
 
-/* Poster-style header */
+/* Gothic header */
 .intro {
-  border: 3px solid var(--color-neon);
+  border: 2px solid var(--color-accent);
+  border-top: 4px solid var(--color-accent);
   padding: 4rem 3rem;
   margin-bottom: 3rem;
-  background: var(--color-bg-surface);
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-surface) 0%,
+    rgba(10, 94, 110, 0.05) 50%,
+    var(--color-bg-surface) 100%
+  );
   position: relative;
-  box-shadow: var(--neon-glow);
+  box-shadow:
+    inset 0 1px 0 rgba(10, 94, 110, 0.2),
+    0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Corner accents */
+/* Tribal corner ornaments */
 .intro::before,
 .intro::after {
-  content: '';
+  content: '❖';
   position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--color-neon);
+  font-size: 24px;
+  color: var(--color-accent);
+  text-shadow: var(--tribal-glow);
 }
 
 .intro::before {
-  top: -15px;
-  left: -15px;
-  border-right: none;
-  border-bottom: none;
-  box-shadow: var(--neon-glow);
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .intro::after {
-  bottom: -15px;
-  right: -15px;
-  border-left: none;
-  border-top: none;
-  box-shadow: var(--neon-glow);
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .intro h1 {
   font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  font-size: 4.5rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: 0.9;
+  line-height: 1;
   color: var(--color-text);
   margin-bottom: 1.5rem;
-  text-shadow: var(--neon-glow-intense);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
 }
 
-/* Glitch/scan line effect on name */
+/* Tribal underline accent */
 .intro h1::after {
-  content: 'Tom Verschueren';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--color-neon);
-  opacity: 0.1;
-  transform: translate(4px, 4px);
-  z-index: -1;
+  content: '~ ◆ ~';
+  display: block;
+  font-size: 1.2rem;
+  font-style: normal;
+  color: var(--color-accent-light);
+  margin-top: 1rem;
+  letter-spacing: 0.8em;
+  text-shadow: var(--tribal-glow);
 }
 
 .tagline {
-  font-size: 1.1rem;
-  color: var(--color-neon);
+  font-size: 1rem;
+  color: var(--color-accent-light);
   text-transform: uppercase;
-  letter-spacing: 0.5em;
-  font-weight: bold;
-  border-top: 2px solid var(--color-neon);
+  letter-spacing: 0.4em;
+  font-weight: normal;
+  font-style: italic;
+  border-top: 1px solid var(--color-accent);
   padding-top: 1.5rem;
+  margin-top: 0.5rem;
   display: inline-block;
-  text-shadow: var(--neon-glow);
 }
 
 /* About section */
 .about {
-  border: 2px solid rgba(57, 255, 20, 0.3);
+  border: 1px solid rgba(10, 94, 110, 0.3);
+  border-left: 3px solid var(--color-accent);
   padding: 2.5rem;
   margin-bottom: 3rem;
-  background: rgba(13, 13, 13, 0.8);
+  background: linear-gradient(
+    90deg,
+    rgba(10, 94, 110, 0.08) 0%,
+    rgba(17, 17, 17, 0.9) 30%
+  );
   position: relative;
 }
 
-/* Decorative line */
+/* Gothic decorative flourish */
 .about::before {
-  content: '';
+  content: '⟡';
   position: absolute;
-  top: 0;
+  top: -12px;
   left: 30px;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--color-neon) 0%, transparent 100%);
-  box-shadow: var(--neon-glow);
+  font-size: 20px;
+  color: var(--color-accent);
+  background: var(--color-bg);
+  padding: 0 10px;
 }
 
 .about p {
   margin-bottom: 1.5rem;
   font-size: 1rem;
   color: var(--color-text-muted);
-  padding-left: 2rem;
+  padding-left: 1rem;
+  line-height: 1.8;
 }
 
 .about p:first-child::first-letter {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--color-neon);
-  text-shadow: var(--neon-glow);
+  font-size: 2.5rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--color-accent-light);
   float: left;
   margin-right: 0.5rem;
   line-height: 1;
@@ -250,130 +270,131 @@ body::after {
   margin-bottom: 0;
 }
 
-/* Interest cards - brutalist neon grid */
+/* Interest cards - gothic tribal grid */
 .interests {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 1px;
   margin-bottom: 3rem;
+  background: var(--color-accent-dark);
 }
 
 .interest {
-  border: 2px solid rgba(57, 255, 20, 0.4);
+  border: none;
   padding: 2.5rem 2rem;
-  text-align: left;
-  transition: all 0.2s ease;
+  text-align: center;
+  transition: all 0.3s ease;
   background: var(--color-bg-surface);
   position: relative;
   overflow: hidden;
 }
 
-.interest:nth-child(2) {
-  border-left: none;
-  border-right: none;
-}
-
-/* Scan line animation on cards */
+/* Tribal symbol decorations */
 .interest::before {
-  content: '';
+  content: '◇';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-neon), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: var(--color-accent);
+  opacity: 0.5;
+  transition: all 0.3s ease;
 }
 
 .interest:hover::before {
-  transform: translateX(100%);
+  opacity: 1;
+  color: var(--color-accent-light);
+  text-shadow: var(--tribal-glow);
 }
 
 .interest:hover {
-  background: rgba(57, 255, 20, 0.1);
-  border-color: var(--color-neon);
-  box-shadow: var(--neon-glow);
+  background: rgba(10, 94, 110, 0.15);
   cursor: pointer;
 }
 
 .interest h2 {
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-style: italic;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   color: var(--color-text);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
 }
 
 .interest:hover h2 {
-  color: var(--color-neon);
-  text-shadow: var(--neon-glow);
+  color: var(--color-accent-light);
 }
 
 .interest p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  font-style: italic;
 }
 
 .interest:hover p {
   color: var(--color-text);
 }
 
-/* Geometric accent on cards */
+/* Tribal bottom accent on cards */
 .interest::after {
-  content: '';
+  content: '▼';
   position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(57, 255, 20, 0.3);
-  transform: rotate(45deg);
-  transition: all 0.2s ease;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  color: var(--color-accent);
+  opacity: 0.4;
+  transition: all 0.3s ease;
 }
 
 .interest:hover::after {
-  border-color: var(--color-neon);
-  box-shadow: var(--neon-glow);
-  transform: rotate(45deg) scale(1.2);
+  opacity: 0.8;
+  color: var(--color-accent-light);
 }
 
-/* Number labels for brutalist effect */
+/* Roman numeral labels for gothic effect */
 .interest:nth-child(1) h2::before {
-  content: '01/';
-  font-size: 0.8rem;
-  color: var(--color-neon);
+  content: '— I —';
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--color-accent);
   display: block;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
 }
 
 .interest:nth-child(2) h2::before {
-  content: '02/';
-  font-size: 0.8rem;
-  color: var(--color-neon);
+  content: '— II —';
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--color-accent);
   display: block;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
 }
 
 .interest:nth-child(3) h2::before {
-  content: '03/';
-  font-size: 0.8rem;
-  color: var(--color-neon);
+  content: '— III —';
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--color-accent);
   display: block;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
 }
 
 /* Footer */
 footer {
-  border-top: 2px solid var(--color-neon);
-  padding: 2rem;
+  border-top: 1px solid var(--color-accent-dark);
+  padding: 2.5rem;
   background: var(--color-bg-surface);
   color: var(--color-text-muted);
   font-size: 0.8rem;
@@ -382,20 +403,22 @@ footer {
 }
 
 footer::before {
-  content: '';
+  content: '❖ ❖ ❖';
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  height: 2px;
-  background: var(--color-neon);
-  box-shadow: var(--neon-glow);
+  font-size: 12px;
+  letter-spacing: 1em;
+  color: var(--color-accent);
+  background: var(--color-bg-surface);
+  padding: 0 15px;
 }
 
 footer p {
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
+  font-style: italic;
 }
 
 /* Responsive */
@@ -405,7 +428,7 @@ footer p {
   }
 
   .intro h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 
   .container {
@@ -419,56 +442,42 @@ footer p {
 
   .interests {
     grid-template-columns: 1fr;
-  }
-
-  .interest {
-    border: 2px solid rgba(57, 255, 20, 0.4);
-  }
-
-  .interest:nth-child(2) {
-    border-left: 2px solid rgba(57, 255, 20, 0.4);
-    border-right: 2px solid rgba(57, 255, 20, 0.4);
-    border-top: none;
-    border-bottom: none;
+    gap: 1px;
   }
 }
 
 @media (max-width: 480px) {
   .intro h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .intro {
     padding: 2.5rem 1.5rem;
   }
 
-  .intro::before,
-  .intro::after {
-    width: 25px;
-    height: 25px;
-  }
-
   .intro::before {
-    top: -10px;
-    left: -10px;
+    top: -12px;
   }
 
   .intro::after {
-    bottom: -10px;
-    right: -10px;
+    bottom: -12px;
   }
 }
 
-/* Subtle animation for atmosphere */
-@keyframes pulse-glow {
+/* Subtle ambient animation */
+@keyframes breathe {
   0%, 100% {
-    opacity: 1;
+    box-shadow:
+      inset 0 1px 0 rgba(10, 94, 110, 0.2),
+      0 10px 40px rgba(0, 0, 0, 0.5);
   }
   50% {
-    opacity: 0.7;
+    box-shadow:
+      inset 0 1px 0 rgba(10, 94, 110, 0.35),
+      0 10px 50px rgba(0, 0, 0, 0.6);
   }
 }
 
 .intro {
-  animation: pulse-glow 4s ease-in-out infinite;
+  animation: breathe 6s ease-in-out infinite;
 }
