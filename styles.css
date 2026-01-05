@@ -1,0 +1,483 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-surface: #111111;
+  --color-text: #e8e4df;
+  --color-text-muted: #8a8580;
+  --color-accent: #0a5e6e;
+  --color-accent-light: #1a8ea0;
+  --color-accent-dark: #043842;
+  --color-border: #0a5e6e;
+  --color-gold: #8b7355;
+  --font-main: 'Times New Roman', 'Georgia', serif;
+  --font-display: 'Times New Roman', 'Georgia', serif;
+  --tribal-glow: 0 0 15px rgba(10, 94, 110, 0.4), 0 0 30px rgba(10, 94, 110, 0.2);
+  --tribal-glow-intense: 0 0 10px rgba(10, 94, 110, 0.6), 0 0 25px rgba(10, 94, 110, 0.4), 0 0 50px rgba(10, 94, 110, 0.2);
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Tribal/Gothic background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    /* Central tribal mandala pattern */
+    radial-gradient(
+      circle at 50% 30%,
+      transparent 0%,
+      transparent 100px,
+      rgba(10, 94, 110, 0.02) 100px,
+      rgba(10, 94, 110, 0.02) 102px,
+      transparent 102px,
+      transparent 150px,
+      rgba(10, 94, 110, 0.015) 150px,
+      rgba(10, 94, 110, 0.015) 152px,
+      transparent 152px,
+      transparent 200px,
+      rgba(10, 94, 110, 0.01) 200px,
+      rgba(10, 94, 110, 0.01) 202px,
+      transparent 202px
+    ),
+    /* Gothic arch pattern */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 150px,
+      rgba(10, 94, 110, 0.03) 150px,
+      rgba(10, 94, 110, 0.03) 152px
+    ),
+    /* Vertical tribal lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 50px,
+      rgba(10, 94, 110, 0.02) 50px,
+      rgba(10, 94, 110, 0.02) 52px,
+      transparent 52px,
+      transparent 54px,
+      rgba(10, 94, 110, 0.01) 54px,
+      rgba(10, 94, 110, 0.01) 55px
+    );
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Gothic vignette and ambient glow */
+body::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(10, 94, 110, 0.08) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  flex: 1;
+  position: relative;
+}
+
+/* Tribal decorative elements */
+.container::before {
+  content: '✦';
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  font-size: 60px;
+  color: var(--color-accent);
+  opacity: 0.3;
+  text-shadow: var(--tribal-glow);
+  transform: rotate(15deg);
+}
+
+.container::after {
+  content: '◆';
+  position: absolute;
+  bottom: 180px;
+  left: -10px;
+  font-size: 40px;
+  color: var(--color-accent);
+  opacity: 0.25;
+  text-shadow: var(--tribal-glow);
+}
+
+/* Gothic header */
+.intro {
+  border: 2px solid var(--color-accent);
+  border-top: 4px solid var(--color-accent);
+  padding: 4rem 3rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-surface) 0%,
+    rgba(10, 94, 110, 0.05) 50%,
+    var(--color-bg-surface) 100%
+  );
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(10, 94, 110, 0.2),
+    0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Tribal corner ornaments */
+.intro::before,
+.intro::after {
+  content: '❖';
+  position: absolute;
+  font-size: 24px;
+  color: var(--color-accent);
+  text-shadow: var(--tribal-glow);
+}
+
+.intro::before {
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.intro::after {
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.intro h1 {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Tribal underline accent */
+.intro h1::after {
+  content: '~ ◆ ~';
+  display: block;
+  font-size: 1.2rem;
+  font-style: normal;
+  color: var(--color-accent-light);
+  margin-top: 1rem;
+  letter-spacing: 0.8em;
+  text-shadow: var(--tribal-glow);
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--color-accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-weight: normal;
+  font-style: italic;
+  border-top: 1px solid var(--color-accent);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+/* About section */
+.about {
+  border: 1px solid rgba(10, 94, 110, 0.3);
+  border-left: 3px solid var(--color-accent);
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 94, 110, 0.08) 0%,
+    rgba(17, 17, 17, 0.9) 30%
+  );
+  position: relative;
+}
+
+/* Gothic decorative flourish */
+.about::before {
+  content: '⟡';
+  position: absolute;
+  top: -12px;
+  left: 30px;
+  font-size: 20px;
+  color: var(--color-accent);
+  background: var(--color-bg);
+  padding: 0 10px;
+}
+
+.about p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  padding-left: 1rem;
+  line-height: 1.8;
+}
+
+.about p:first-child::first-letter {
+  font-size: 2.5rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--color-accent-light);
+  float: left;
+  margin-right: 0.5rem;
+  line-height: 1;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+/* Interest cards - gothic tribal grid */
+.interests {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-bottom: 3rem;
+  background: var(--color-accent-dark);
+}
+
+.interest {
+  border: none;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: var(--color-bg-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tribal symbol decorations */
+.interest::before {
+  content: '◇';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: var(--color-accent);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.interest:hover::before {
+  opacity: 1;
+  color: var(--color-accent-light);
+  text-shadow: var(--tribal-glow);
+}
+
+.interest:hover {
+  background: rgba(10, 94, 110, 0.15);
+  cursor: pointer;
+}
+
+.interest h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.interest:hover h2 {
+  color: var(--color-accent-light);
+}
+
+.interest p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+  font-style: italic;
+}
+
+.interest:hover p {
+  color: var(--color-text);
+}
+
+/* Tribal bottom accent on cards */
+.interest::after {
+  content: '▼';
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  color: var(--color-accent);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.interest:hover::after {
+  opacity: 0.8;
+  color: var(--color-accent-light);
+}
+
+/* Roman numeral labels for gothic effect */
+.interest:nth-child(1) h2::before {
+  content: '— I —';
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+.interest:nth-child(2) h2::before {
+  content: '— II —';
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+.interest:nth-child(3) h2::before {
+  content: '— III —';
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--color-accent-dark);
+  padding: 2.5rem;
+  background: var(--color-bg-surface);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  position: relative;
+}
+
+footer::before {
+  content: '❖ ❖ ❖';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 1em;
+  color: var(--color-accent);
+  background: var(--color-bg-surface);
+  padding: 0 15px;
+}
+
+footer p {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .intro h1 {
+    font-size: 2.8rem;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .container::before,
+  .container::after {
+    display: none;
+  }
+
+  .interests {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .intro::before {
+    top: -12px;
+  }
+
+  .intro::after {
+    bottom: -12px;
+  }
+}
+
+/* Subtle ambient animation */
+@keyframes breathe {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 rgba(10, 94, 110, 0.2),
+      0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(10, 94, 110, 0.35),
+      0 10px 50px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.intro {
+  animation: breathe 6s ease-in-out infinite;
+}
