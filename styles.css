@@ -391,6 +391,252 @@ body::after {
   letter-spacing: 0.3em;
 }
 
+/* Interest card links */
+a.interest {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ===== Sub-page styles ===== */
+
+/* Navigation */
+.page-nav {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  color: var(--color-accent-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.back-link:hover {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Page header */
+.page-header {
+  border: 2px solid var(--color-accent);
+  border-top: 4px solid var(--color-accent);
+  padding: 3rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-surface) 0%,
+    rgba(10, 94, 110, 0.05) 50%,
+    var(--color-bg-surface) 100%
+  );
+  text-align: center;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(10, 94, 110, 0.2),
+    0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.page-header::before {
+  content: '❖';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: var(--color-accent);
+  text-shadow: var(--tribal-glow);
+  background: var(--color-bg);
+  padding: 0 10px;
+}
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-style: italic;
+}
+
+/* Gallery grid (Designs & Art pages) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.gallery-item {
+  border: 1px solid rgba(10, 94, 110, 0.3);
+  background: var(--color-bg-surface);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.gallery-item:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Image placeholder */
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 94, 110, 0.1) 0%,
+    rgba(10, 94, 110, 0.05) 50%,
+    rgba(10, 94, 110, 0.1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(10, 94, 110, 0.2);
+}
+
+.placeholder-icon {
+  font-size: 2rem;
+  color: var(--color-accent);
+  opacity: 0.4;
+}
+
+.placeholder-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-style: italic;
+}
+
+/* Gallery caption / text area */
+.gallery-caption {
+  padding: 1.5rem;
+}
+
+.gallery-caption h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.gallery-caption h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.gallery-caption p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* Music page - Track list */
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.track-item {
+  border: 1px solid rgba(10, 94, 110, 0.3);
+  border-left: 3px solid var(--color-accent);
+  padding: 2rem;
+  background: var(--color-bg-surface);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.track-item:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+.track-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.track-description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.track-embed {
+  width: 100%;
+}
+
+.track-embed iframe {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.embed-placeholder {
+  width: 100%;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 94, 110, 0.1) 0%,
+    rgba(10, 94, 110, 0.05) 50%,
+    rgba(10, 94, 110, 0.1) 100%
+  );
+  border: 1px dashed rgba(10, 94, 110, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.embed-placeholder .placeholder-icon {
+  font-size: 1.8rem;
+}
+
+.embed-placeholder .placeholder-text {
+  text-align: center;
+  max-width: 300px;
+}
+
 /* Footer */
 footer {
   border-top: 1px solid var(--color-accent-dark);
@@ -431,6 +677,10 @@ footer p {
     font-size: 2.8rem;
   }
 
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+
   .container {
     padding: 2rem 1rem;
   }
@@ -444,11 +694,20 @@ footer p {
     grid-template-columns: 1fr;
     gap: 1px;
   }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .intro h1 {
     font-size: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
   }
 
   .intro {
@@ -461,6 +720,14 @@ footer p {
 
   .intro::after {
     bottom: -12px;
+  }
+
+  .page-header {
+    padding: 2rem 1.5rem;
+  }
+
+  .track-item {
+    padding: 1.5rem;
   }
 }
 
